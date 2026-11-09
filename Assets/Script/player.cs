@@ -8,12 +8,12 @@ public class Player : MonoBehaviour
 {
 
     public NavMeshAgent nav;
-    
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        Application.targetFrameRate = 120;
+        
         
     }
 
@@ -36,5 +36,15 @@ public class Player : MonoBehaviour
             }
 
         }
+
+        if(nav.velocity.magnitude>0.1f)
+        {
+            anim.SetBool("isRun", true);
+        }
+        else
+        {
+            anim.SetBool("isRun", false);
+        }
+
     }
 }
